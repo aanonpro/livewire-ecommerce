@@ -1,14 +1,14 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('/admin/dashboard')}}">
           <i class="mdi mdi-home menu-icon"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="mdi mdi-home menu-icon"></i>
+          <i class="mdi mdi-sale menu-icon"></i>
           <span class="menu-title">Sales</span>
         </a>
       </li>
@@ -20,18 +20,18 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">View Category</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Add Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/category') }}">View Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('/admin/category/create')}}">Add Category</a></li>
           </ul>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" data-bs-toggle="collapse" href="#product" aria-expanded="false" aria-controls="product">
           <i class="mdi mdi-plus-circle menu-icon"></i>
           <span class="menu-title">Products</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="product">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="">View Products</a></li>
             <li class="nav-item"> <a class="nav-link" href="">Add Products</a></li>
@@ -40,26 +40,25 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="mdi mdi-home menu-icon"></i>
+          <i class="mdi mdi-kodi menu-icon"></i>
           <span class="menu-title">Brands</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <i class="mdi mdi-circle-outline menu-icon"></i>
+        <a class="nav-link" data-bs-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
+          <i class="mdi mdi-account menu-icon"></i>
           <span class="menu-title">User</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="user">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="">View users</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Add Admin</a></li>
           </ul>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="mdi mdi-home menu-icon"></i>
+          <i class="mdi mdi-view-carousel menu-icon"></i>
           <span class="menu-title">Home Slider</span>
         </a>
       </li>

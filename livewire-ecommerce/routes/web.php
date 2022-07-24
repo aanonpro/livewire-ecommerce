@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,7 @@ Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
 
     // category routes
     Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+    Route::get('category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create']);
+    Route::post('category', [App\Http\Controllers\Admin\CategoryController::class, 'store']);
 
 });

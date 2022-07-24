@@ -4,11 +4,14 @@
 
 <div class="row">
     <div class="col-md-12">
-
+      <div class="col-9  grid-margin" style="margin: auto;">
             <div class="card">
+              @if (session('status'))
+                <div class="alert alert-success">{{ session('status') }}</div>
+              @endif
               <div class="card-body">
                 <h4 class="card-title">CATEGORY
-                    <a href="" class="text-white btn btn-primary btn-sm float-end">Add Category</a></h4>
+                    <a href="{{url('/admin/category/create')}}" class="text-white btn btn-primary btn-sm float-end">Add Category</a></h4>
                 {{-- <p class="card-description">
                   Add class <code>.table-striped</code>
                 </p> --}}
@@ -49,7 +52,7 @@
                 </div>
               </div>
             </div>
-
+      </div>
     </div>
 </div>
 
