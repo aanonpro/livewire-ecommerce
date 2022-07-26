@@ -8,7 +8,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Add Category
-                    <a href="{{url('/admin/category/create')}}" class="text-white btn btn-danger btn-sm float-end">Back</a>
+                    <a href="{{url('/admin/category')}}" class="text-white btn btn-danger btn-sm float-end">Back</a>
                 </h4>
                 <form class="form-sample" action="{{ url('/admin/category') }}" method="POST" enctype="multipart/form-data">
                   @csrf
