@@ -5,7 +5,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-lg-9 grid-margin stretch-card" style="margin: auto">
-                <div class="card">
+               
+              <div class="card">
+                @if(session('status'))
+                  <div class="alert alert-success">
+                    {{session('status')}}
+                  </div>
+                @endif
                   <div class="card-body">
                     <h4 class="card-title">PRODUCTS
                         <a href="{{ url('admin/products/create') }}" class="text-white btn btn-primary btn-sm float-end">Add Product</a>

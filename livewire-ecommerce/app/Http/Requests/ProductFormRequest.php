@@ -36,11 +36,11 @@ class ProductFormRequest extends FormRequest
             'brand' =>[
                 'required','string','max:255'
             ],
-            'short_desciption' =>[
-                'required','string'
+            'short_description' =>[
+                'nullable','string'
             ],
-            'desciption' =>[
-                'required','string'
+            'description' =>[
+                'nullable','string'
             ],
             'original_price' =>[
                 'required','integer'
@@ -52,10 +52,10 @@ class ProductFormRequest extends FormRequest
                 'required','integer'
             ],
             'trending' =>[
-                'required','integer'
+                'nullable'
             ],
             'status' =>[
-                'required','integer'
+                'nullable'
             ],
             'meta_title' =>[
                 'required','string','max:255'
@@ -65,6 +65,11 @@ class ProductFormRequest extends FormRequest
             ],
             'meta_description' =>[
                 'required','string'
+            ],
+
+            'image' =>[
+                'nullable',
+                // 'image|mimes:jpeg,png,jpg,gif'
             ],
         ];
     }
