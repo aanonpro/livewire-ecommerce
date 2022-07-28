@@ -50,8 +50,8 @@
                               </tr>
                               @empty
                                 <tr>
-                                    <td colspan="5" class="py-3">
-                                        <h4>No colors added</h4>
+                                    <td colspan="6" class="py-3">
+                                        <h4>No slider added</h4>
                                     </td>
                               </tr>
                               @endforelse
