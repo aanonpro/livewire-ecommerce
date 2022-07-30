@@ -95,7 +95,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style=" display: inline !important;">
                     <li class="active" ><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/collections') }}">Collections</a></li>
+                    <li><a href="{{ url('/collections') }}">all categories</a></li>
                     <li><a href="{{ url('/new-arrivals') }}">New Arrivals</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="checkout.html">Checkout</a></li>

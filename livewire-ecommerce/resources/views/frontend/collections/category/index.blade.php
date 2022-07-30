@@ -3,7 +3,7 @@
 @section('title', 'All Categories')
 
 @section('content')
-
+{{--
 <div class="maincontent-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
@@ -42,6 +42,47 @@
             </div>
         </div>
     </div>
-</div> <!-- End main content area -->
+</div> <!-- End main content area --> --}}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Category</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            @forelse ($categories as $categoryItem)
+            <div class="col-md-3 col-sm-6">
+                {{-- <img src="{{"$categoryItem->image"}}" alt="" > --}}
+                <div class="single-promo promo1" style="height: 170px; ">
+                    <i class="fa fa-refresh"></i>
+                    <a class="text-decoration-none text-white" href="{{ url('/collections/'.$categoryItem->slug) }}">
+                        <p>{{ $categoryItem->name}}</p>
+                    </a>
+                </div>
+
+            </div>
+            @empty
+                <div class="col-md-12">
+                    <h5>No Products Available</h5>
+                </div>
+            @endforelse
+
+        </div>
+    </div>
+</div> <!-- End promo area -->
+
+
+
+
 
 @endsection
