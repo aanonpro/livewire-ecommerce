@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'All Categories')
+@section('title')
+All Categories
+@endsection
 
 @section('content')
 {{--
