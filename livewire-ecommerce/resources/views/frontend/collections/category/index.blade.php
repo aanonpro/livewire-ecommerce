@@ -65,8 +65,11 @@ All Categories
             @forelse ($categories as $categoryItem)
             <div class="col-md-3 col-sm-6">
                 {{-- <img src="{{"$categoryItem->image"}}" alt="" > --}}
-                <div class="single-promo promo1" style="height: 170px; ">
+                <div>
+                {{-- <div class="single-promo promo1" style="height: 170px; "> --}}
                     <i class="fa fa-refresh"></i>
+                    {{-- <img src="{{ asset("$categoryItem->image") }}" alt=""> --}}
+
                     <a class="text-decoration-none text-white" href="{{ url('/collections/'.$categoryItem->slug) }}">
                         <p>{{ $categoryItem->name}}</p>
                     </a>

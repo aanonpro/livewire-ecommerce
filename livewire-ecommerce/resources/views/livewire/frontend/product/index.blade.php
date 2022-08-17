@@ -15,17 +15,17 @@
                     </div>
                     <div class="single-sidebar">
                         <h2 class="sidebar-title mt-4">Price</h2>
-                        
+
                             <label class="d-block">
                                 <input type="radio" name="priceSort" wire:model="priceInputs" value="high-to-low" > High to low
                             </label>
                             <label class="d-block">
                                 <input type="radio" name="priceSort" wire:model="priceInputs" value="low-to-high" > Low to High
                             </label>
-                       
+
                     </div>
                 </div>
-                
+
                 <div class="col-md-10">
                     <div class="product-content-right">
                         <div class="related-products-wrapper mt-4">
@@ -47,15 +47,15 @@
                                                 </div>
                                                 <div class="product-upper">
                                                     @if ($product->productImages->count() > 0)
-                                                    <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
-                                                        <img src="{{ asset($product->productImages[0]->image)}}" alt="{{ $product->name }}" style="width: 195px; height:243px;">
+                                                    <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}" >
+                                                        <img src="{{ asset($product->productImages[0]->image)}}" alt="{{ $product->name }}"  class="mx-auto d-block" style="width: 195px; height:243px;">
                                                     </a>
                                                     @endif
                                                 </div>
-                                                <h2>
-                                                    <a class="px-2" href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">{{ $product->name }}</a>
+                                                <h2 class=" text-center ">
+                                                    <a  href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">{{ $product->name }}</a>
                                                 </h2>
-                                                <div class="product-carousel-price px-2">
+                                                <div class="product-carousel-price text-center ">
                                                     <ins>$ {{$product->selling_price}}</ins> <del>${{$product->original_price}}</del>
                                                 </div>
                                                 <div class="product-option-shop pb-3 px-2">
@@ -74,8 +74,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                     
-                    </div>                
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
