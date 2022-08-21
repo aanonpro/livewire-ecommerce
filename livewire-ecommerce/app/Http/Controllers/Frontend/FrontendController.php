@@ -6,13 +6,15 @@ use App\Models\Slider;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 
 class FrontendController extends Controller
 {
 
     public function index(){
         $sliders = Slider::where('status', '0')->get();
-        return view('frontend.index', compact('sliders'));
+        $latest_posts = Product::where('status','0')->inRandomOrder()->get()->take(6);
+        return view('frontend.index', compact('sliders','latest_posts'));
     }
 
     public function categories(){

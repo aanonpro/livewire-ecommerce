@@ -1,2 +1,2 @@
-email : livewire@laravel.com
+email : mail@gmail.com
 pass : ecom12345

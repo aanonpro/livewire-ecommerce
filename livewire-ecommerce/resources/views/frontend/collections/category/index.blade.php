@@ -47,9 +47,9 @@ All Categories
 </div> <!-- End main content area --> --}}
 
 <div class="product-big-title-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="container" >
+        <div class="row" >
+            <div class="col-md-12" >
                 <div class="product-bit-title text-center">
                     <h2>Category</h2>
                 </div>
@@ -62,23 +62,33 @@ All Categories
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
+            
             @forelse ($categories as $categoryItem)
             <div class="col-md-3 col-sm-6">
                 {{-- <img src="{{"$categoryItem->image"}}" alt="" > --}}
-                <div>
-                {{-- <div class="single-promo promo1" style="height: 170px; "> --}}
-                    <i class="fa fa-refresh"></i>
-                    {{-- <img src="{{ asset("$categoryItem->image") }}" alt=""> --}}
+                {{-- <div> --}}
+                {{-- <div class="single-promo promo1" style="height: 170px; ">
+                    <i class="fa fa-refresh"></i> --}}
+                  
 
                     <a class="text-decoration-none text-white" href="{{ url('/collections/'.$categoryItem->slug) }}">
-                        <p>{{ $categoryItem->name}}</p>
+                        <div class="product-f-image">
+                          <img src="{{ asset("$categoryItem->image") }}" alt="">
+                            <div class="product-hover">
+                            <p class="text-dark text-center fs-1">{{ $categoryItem->name}}</p>
+                                {{-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a> --}}
+                                {{-- <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a> --}}
+                            </div>
+                        </div>
+                          
                     </a>
-                </div>
+                   
+                {{-- </div> --}}
 
             </div>
             @empty
                 <div class="col-md-12">
-                    <h5>No Products Available</h5>
+                    <h5>No Categories Available</h5>
                 </div>
             @endforelse
 

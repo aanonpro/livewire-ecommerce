@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="product-bit-title text-center">
-                    <h2>Our Products</h2>
+                    <h2>{{$category->name}} Products</h2>
                 </div>
             </div>
         </div>
