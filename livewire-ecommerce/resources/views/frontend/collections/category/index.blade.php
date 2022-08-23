@@ -51,7 +51,7 @@ All Categories
         <div class="row" >
             <div class="col-md-12" >
                 <div class="product-bit-title text-center">
-                    <h2>Category</h2>
+                    <h2>Our Category</h2>
                 </div>
             </div>
         </div>

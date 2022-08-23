@@ -17,7 +17,7 @@
             <img src="{{ $sliderItem->image }}" class="d-block w-100" style="height: 362px;" alt="...">
             @endif
 
-            <div class="carousel-caption d-none d-md-block text-end text-success">
+            <div class="carousel-caption d-none d-md-block text-end text-primary">
                 <h3>{{ $sliderItem->title }}</h3>
                 <p>{{ $sliderItem->description }}</p>
             </div>
@@ -45,8 +45,8 @@
                     <h2 class="section-title">Latest Products</h2>
                     <div class="product-carousel">
                         @forelse ($latest_posts as $latest_item)
-                            <div class="single-product">
-                                <div class="product-f-image">
+                            <div class="single-product" >
+                                <div class="product-f-image" >
                                     @if ($latest_item->productImages->count() > 0)
                                         <img src="{{ asset($latest_item->productImages[0]->image)}}" alt="{{ $latest_item->name }}" >
                                     @endif
@@ -55,12 +55,12 @@
                                             <a href="#" class="add-to-cart-link "><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                         </div>
                                         <div class="mb-5">
-                                            <a href="single-product.html" class="view-details-link "><i class="fa fa-link"></i> See details</a>
+                                            <a href="{{ url('collections/'.$latest_item->category->slug) }}" class="view-details-link "><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h2><a  href="">{{ $latest_item->name }}</a></h2>
+                                <h2><a  href="{{ url('collections/'.$latest_item->category->slug) }}">{{ $latest_item->name }}</a></h2>
 
                                 <div class="product-carousel-price">
                                     <ins>$ {{$latest_item->selling_price}}</ins> <del>${{$latest_item->original_price}}</del>
@@ -80,7 +80,8 @@
     </div>
 </div> <!-- End main content area -->
 
-<div class="brands-area">
+{{-- <hr style="color: solid 1px gray; " /> --}}
+{{-- <div class="brands-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
@@ -100,7 +101,7 @@
             </div>
         </div>
     </div>
-</div> <!-- End brands area -->
+</div> <!-- End brands area --> --}}
 
 <div class="product-widget-area">
     <div class="zigzag-bottom"></div>
@@ -110,30 +111,41 @@
                 <div class="single-product-widget">
                     <h2 class="product-wid-title">Top Sellers</h2>
                     <a href="" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    @forelse ($recent_posts as $recent_items)
+                        <div class="single-wid-product">
+                            @if ($recent_items->productImages->count() > 0)
+                                <a href="{{ url('collections/'.$recent_items->category->slug.'/'.$recent_items->slug) }}"><img src="{{ asset($recent_items->productImages[0]->image)}}" alt="{{ $latest_item->name }}" class="product-thumb"></a>
+                            @endif
+                            <h2><a href="{{ url('collections/'.$recent_items->category->slug.'/'.$recent_items->slug) }}">{{ $recent_items->name }}</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$ {{$recent_items->selling_price}}</ins> <del>${{$recent_items->original_price}}</del>
+                            </div>
                         </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
+                    @empty
+                        <div class="single-wid-product">
+                            <h3>No Top sellers available</h3>
                         </div>
-                    </div>
-                 
+                    @endforelse
+                    
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="single-product-widget">
                     <h2 class="product-wid-title">Recently Viewed</h2>
                     <a href="#" class="wid-view-more">View All</a>
+                    @forelse ($recent_view as $recent_views)
                     <div class="single-wid-product">
-                        <a href="single-product.html"><img src="img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
+                        @if ($recent_views->productImages->count() > 0)
+                            <a href="{{ url('collections/'.$recent_views->category->slug.'/'.$recent_views->slug) }}"><img src="{{ asset($recent_views->productImages[0]->image)}}" alt="{{ $recent_views->name }}" class="product-thumb"></a>
+                        @endif
+                        <h2><a href="{{ url('collections/'.$recent_views->category->slug.'/'.$recent_views->slug) }}">{{ $recent_views->name }}</a></h2>
                         <div class="product-wid-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -142,9 +154,14 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
+                            <ins>$ {{$recent_views->selling_price}}</ins> <del>${{$recent_views->original_price}}</del>
                         </div>
                     </div>
+                @empty
+                    <div class="single-wid-product">
+                        <h3>No Top sellers available</h3>
+                    </div>
+                @endforelse
                    
                 </div>
             </div>
@@ -152,9 +169,12 @@
                 <div class="single-product-widget">
                     <h2 class="product-wid-title">Top New</h2>
                     <a href="#" class="wid-view-more">View All</a>
+                    @forelse ($recent_new as $recent_new_items)
                     <div class="single-wid-product">
-                        <a href="single-product.html"><img src="img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Apple new i phone 6</a></h2>
+                        @if ($recent_items->productImages->count() > 0)
+                            <a href="{{ url('collections/'.$recent_new_items->category->slug.'/'.$recent_new_items->slug) }}"><img src="{{ asset($recent_new_items->productImages[0]->image)}}" alt="{{ $recent_new_items->name }}" class="product-thumb"></a>
+                        @endif
+                        <h2><a href="{{ url('collections/'.$recent_new_items->category->slug.'/'.$recent_new_items->slug) }}">{{ $recent_new_items->name }}</a></h2>
                         <div class="product-wid-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -163,9 +183,14 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
+                            <ins>$ {{$recent_new_items->selling_price}}</ins> <del>${{$recent_new_items->original_price}}</del>
                         </div>
                     </div>
+                @empty
+                    <div class="single-wid-product">
+                        <h3>No Top sellers available</h3>
+                    </div>
+                @endforelse
                    
                 </div>
             </div>
